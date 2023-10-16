@@ -40,7 +40,7 @@ When you click the **Knit** button a document will be generated that includes bo
 ###################
 
 # Import data, subset and name the variables in the dataframes, remove blanks (by language)
-raw.df <- read.csv("2023 Health Equity Research Intensive_October 13, 2023_08.17.csv", stringsAsFactors = TRUE)
+raw.df <- read.csv("2023 Health Equity Research Intensive_October 15, 2023_20.46.csv", stringsAsFactors = TRUE)
 raw.df <- raw.df[3:nrow(raw.df),] #cut rows 2-3 with question wording & "ImportID"
 raw.df$Q3 <- as.character(raw.df$Q3) #convert CATA to character and not factor
  
@@ -472,7 +472,6 @@ domain.df$`implementation` <- factor(domain.df$`implementation`,
 domain.df$`engagement` <- factor(domain.df$`engagement`,
                                           levels = c(1,2,3,4,5),
                                           labels = likertlabels)
-
 ####################
 # Wrangle Feedback #
 ####################
@@ -621,10 +620,10 @@ prepost.df [prepost.df$id=="LO1",] %>%                       #runs code if these
     dot_guide_size = 0.15,
     dot_guide_colour = "grey60") +
   scale_x_continuous(breaks = seq (1,5,1),limits = c(1,5)) + #show x axis from 1 to 5 in intervals of 1, even if no data
-   geom_text(data=filter(prepost.df, session=="Groundwater Approach"),
+   geom_text(data=filter(prepost.df, session=="Trust & Trustworthiness"),
             aes(x=pre, y=session, label = "Before"),
             color = gold, size=2, vjust=-1.5, fontface="bold",family="Lato")+
-   geom_text(data=filter(prepost.df, session=="Groundwater Approach"),
+   geom_text(data=filter(prepost.df, session=="Trust & Trustworthiness"),
             aes(x=post, y=session, label = "After"),
             color = teal, size=2, vjust=-1.5, fontface="bold",family="Lato")+
    geom_text(aes(x=pre,y=session,label = round(pre, digits = 1)), color = "white", size = 2) +             #insert pre-score in dot, rounding to 1 decimal place
@@ -660,10 +659,10 @@ prepost.df [prepost.df$id == "LO2",] %>%
     dot_guide_size = 0.15,
     dot_guide_colour = "grey60") +
   scale_x_continuous(breaks = seq (1,5,1),limits = c(1,5)) + 
-   geom_text(data=filter(prepost.df, session=="Groundwater Approach"),
+   geom_text(data=filter(prepost.df, session=="Co-Lab(orative) Learning Workshop"),
             aes(x=pre, y=session, label = "Before"),
             color = gold, size=2, vjust=-1.5, fontface="bold",family="Lato")+
-   geom_text(data=filter(prepost.df, session=="Groundwater Approach"),
+   geom_text(data=filter(prepost.df, session=="Co-Lab(orative) Learning Workshop"),
             aes(x=post, y=session, label = "After"),
             color = teal, size=2, vjust=-1.5, fontface="bold",family="Lato")+
    geom_text(aes(x=pre,y=session,label = round(pre, digits = 1)), color = "white", size = 2) +             
@@ -732,7 +731,7 @@ thissession <- "Trust & Trustworthiness"
 #thissession <- "Photovoice"
 #thissession <- "Groundwater Approach"
 #thissession <- "Climate Change & Environmental Health"
-#thissession <- "Co-Lab(orative) Learning Workshop",
+#thissession <- "Co-Lab(orative) Learning Workshop"
 
 sessionlikert <- likert(session.df[session.df$session==thissession,2:6])
 plot(sessionlikert, positive.order = TRUE) + 
