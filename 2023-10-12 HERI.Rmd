@@ -40,7 +40,7 @@ When you click the **Knit** button a document will be generated that includes bo
 ###################
 
 # Import data, subset and name the variables in the dataframes, remove blanks (by language)
-raw.df <- read.csv("2023 Health Equity Research Intensive_October 15, 2023_20.46.csv", stringsAsFactors = TRUE)
+raw.df <- read.csv("2023 Health Equity Research Intensive_October 18, 2023_10.51.csv", stringsAsFactors = TRUE)
 raw.df <- raw.df[3:nrow(raw.df),] #cut rows 2-3 with question wording & "ImportID"
 raw.df$Q3 <- as.character(raw.df$Q3) #convert CATA to character and not factor
  
@@ -134,7 +134,7 @@ rename_ksa <- lapply(list(ksa01.df,
                           ksa10.df,
                           ksa11.df),function(x) {
   names(x)<- c("session",
-               "pre_k","post_k","pre_a","post_a")
+               "pre_k","pre_a","post_k","post_a")
  x})
  
 names(rename_ksa) <- c("ksa01.df",
@@ -721,7 +721,7 @@ ggsave("Session All - combined.png", height = 4, width = 7)
 #####################
 # Likert by session #
 #####################
-thissession <- "Trust & Trustworthiness"
+#thissession <- "Trust & Trustworthiness"
 #thissession <- "Equitable Partnerships"
 #thissession <- "Nuts & Bolts"
 #thissession <- "Community-Based Participatory Research"
@@ -731,17 +731,17 @@ thissession <- "Trust & Trustworthiness"
 #thissession <- "Photovoice"
 #thissession <- "Groundwater Approach"
 #thissession <- "Climate Change & Environmental Health"
-#thissession <- "Co-Lab(orative) Learning Workshop"
+thissession <- "Co-Lab(orative) Learning Workshop"
 
 sessionlikert <- likert(session.df[session.df$session==thissession,2:6])
 plot(sessionlikert, positive.order = TRUE) + 
   labs(title = thissession)
 
-ggsave("Session 01 - Session.png", width = 9, height = 2.5)
+ggsave("Session 11 - Session.png", width = 9, height = 2.5)
 
 domainlikert <- likert(domain.df[domain.df$session==thissession,2:4])
 plot(domainlikert, positive.order = TRUE) + 
   labs(title = thissession)
 
-ggsave("Session 01 - Domain.png", width = 9, height = 2.5)
+ggsave("Session 11 - Domain.png", width = 9, height = 2.5)
 ```
