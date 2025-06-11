@@ -1,5 +1,5 @@
 # Health Equity Research Intensive
-code for analyzing data for the Health Equity Research Intensive (HERI) 
+code for analyzing data to assess growth in knowledge and abilities, resulting from the Health Equity Research Intensive (HERI)
 
 # Purpose:
 to store the survey tool, datasets, R code, graphs, and final slide deck interpreting the satisfaction and professional development of HERI attendees by session
